@@ -2,10 +2,12 @@ import React from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import Banner from "../components/Banner";
 import ImageLeftCards from "../components/ImageLeftCards";
+import CategoryGrid from "../components/CategoryDisplay/CategoryGrid";
 
 //pictures
 import babyYoda from "../images/products/baby_yoda.jpg";
 import blanket2 from "../images/products/blanket2.jpg";
+import PopularProductGrid from "../components/ProductCards and Display/PopularProductGrid";
 
 const Home = () => {
   return (
@@ -34,6 +36,8 @@ const Home = () => {
           textColor="gray.50"
         />
       </Flex>
+      <CategoryGrid />
+      <PopularProductGrid />
     </Box>
   );
 };

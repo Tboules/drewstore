@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Box,
   Drawer,
@@ -11,27 +11,26 @@ import {
   List,
   ListItem,
   useDisclosure,
-  Button
-} from "@chakra-ui/react"
+  Button,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import {HamburgerIcon} from '@chakra-ui/icons'
-
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 //styles
-import {sharedListStyles} from './Header'
+import { sharedListStyles } from "./Header";
 
 const NavDrawer = () => {
-  const {isOpen, onOpen, onClose} = useDisclosure()
-  const btnRef = React.useRef()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
 
   return (
-    <Box mr='10%' display={{base: 'block', md: 'none'}}>
-      <Button onClick={onOpen} display={{base: 'block', md: 'none'}}>
+    <Box mr="10%" display={{ base: "block", md: "none" }}>
+      <Button onClick={onOpen} display={{ base: "block", md: "none" }}>
         <HamburgerIcon />
       </Button>
       <Drawer
         isOpen={isOpen}
-        placement='right'
+        placement="right"
         onClose={onClose}
         finalFocusRef={btnRef}
       >
@@ -39,27 +38,29 @@ const NavDrawer = () => {
           <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader>
-              <Link to='/' onClick={onClose}>Home</Link>
+              <Link to="/" onClick={onClose}>
+                Cart
+              </Link>
             </DrawerHeader>
 
             <DrawerBody>
-              <List mt='25%'>
-                <Link to='/' onClick={onClose}>
+              <List mt="25%">
+                <Link to="/" onClick={onClose}>
                   <ListItem mt={4} {...sharedListStyles}>
-                    Cart
+                    Home
                   </ListItem>
                 </Link>
-                <Link to='/shop' onClick={onClose}>
+                <Link to="/shop" onClick={onClose}>
                   <ListItem mt={4} {...sharedListStyles}>
                     Shop
                   </ListItem>
                 </Link>
-                <Link to='/' onClick={onClose}>
+                <Link to="/" onClick={onClose}>
                   <ListItem mt={4} {...sharedListStyles}>
                     My Story
                   </ListItem>
                 </Link>
-                <Link to='/' onClick={onClose}>
+                <Link to="/" onClick={onClose}>
                   <ListItem mt={4} {...sharedListStyles}>
                     Contact
                   </ListItem>
@@ -69,9 +70,8 @@ const NavDrawer = () => {
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-
     </Box>
-  )
-}
+  );
+};
 
-export default NavDrawer
+export default NavDrawer;
