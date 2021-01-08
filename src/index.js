@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+
+const theme = extendTheme({
+  fonts: {
+    titles: "'Raleway', sans-serif",
+    heading: "'Tangerine', cursive",
+    mono: "'Lato', sans-serif",
+  },
+  colors: {
+    back: "#f7f9f9",
+    primary: "#7b9e87",
+    secondary: "#b6be9c",
+    secondaryL: "#d2d0ba",
+    accent: "#011936",
+    accentL: "#5e747f",
+    accentP: "#e5c1bd",
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={theme}>
+      <App />
+    </ChakraProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
