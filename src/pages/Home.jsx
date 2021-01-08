@@ -8,6 +8,8 @@ import CategoryGrid from "../components/CategoryDisplay/CategoryGrid";
 import babyYoda from "../images/products/baby_yoda.jpg";
 import blanket2 from "../images/products/blanket2.jpg";
 import PopularProductGrid from "../components/ProductCards and Display/PopularProductGrid";
+import InstagramPic from "../components/InstagramStack/InstagramPic";
+import InstagramStack from "../components/InstagramStack";
 
 const Home = () => {
   return (
@@ -38,6 +40,7 @@ const Home = () => {
       </Flex>
       <CategoryGrid />
       <PopularProductGrid />
+      <InstagramStack />
     </Box>
   );
 };
