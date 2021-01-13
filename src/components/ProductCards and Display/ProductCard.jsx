@@ -56,7 +56,7 @@ const ProductCard = ({ imgUrl, price, productName, sale }) => {
           {sale && (
             <Text pr="7px" fontFamily="mono" fontWeight="600" color="primary">
               {" "}
-              {sale}{" "}
+              {`$${sale}`}{" "}
             </Text>
           )}
           <Text
@@ -65,7 +65,7 @@ const ProductCard = ({ imgUrl, price, productName, sale }) => {
             textDecoration={sale && "line-through"}
             color="gray.500"
           >
-            {price}
+            {`$${price}`}
           </Text>
         </Flex>
       </Box>

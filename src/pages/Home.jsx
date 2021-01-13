@@ -1,28 +1,24 @@
 import React from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Button, Center } from "@chakra-ui/react";
 import Banner from "../components/Banner";
 import ImageLeftCards from "../components/ImageLeftCards";
 import CategoryGrid from "../components/CategoryDisplay/CategoryGrid";
-
-//pictures
-import babyYoda from "../images/products/baby_yoda.jpg";
-import blanket2 from "../images/products/blanket2.jpg";
+import { Link } from "react-router-dom";
 import PopularProductGrid from "../components/ProductCards and Display/PopularProductGrid";
-import InstagramPic from "../components/InstagramStack/InstagramPic";
 import InstagramStack from "../components/InstagramStack";
 
 const Home = () => {
   return (
-    <Box pb="100px">
+    <Box>
       <Banner />
       <Flex
-        mt="50px"
+        mt="80px"
         ml="10%"
         mr="10%"
         direction={{ base: "column", lg: "row" }}
       >
         <ImageLeftCards
-          img={blanket2}
+          img="https://firebasestorage.googleapis.com/v0/b/drowchet.appspot.com/o/products%2Fblanket2.jpg?alt=media&token=3ec6800d-e2cf-4c0a-b388-59d9341ece6a"
           title="- NEW ARRIVALS"
           tagLineTop="WINTER 21"
           tagLineBottom="COLLECTIONS"
@@ -30,7 +26,7 @@ const Home = () => {
           textColor="accent"
         />
         <ImageLeftCards
-          img={babyYoda}
+          img="https://firebasestorage.googleapis.com/v0/b/drowchet.appspot.com/o/products%2Fbaby_yoda.jpg?alt=media&token=6e8a43a7-5f2a-4e45-98b3-29663667341e"
           title="- SALE"
           tagLineTop="UP TO"
           tagLineBottom="50% OFF"
@@ -40,6 +36,25 @@ const Home = () => {
       </Flex>
       <CategoryGrid />
       <PopularProductGrid />
+      <Center w="100%" h="100px" mt="40px">
+        <Link to="/shop">
+          <Button
+            m="auto"
+            borderRadius="none"
+            w="160px"
+            h="55px"
+            bgColor="accentL"
+            color="back"
+            letterSpacing=".5px"
+            transition="background-color .2s ease-in-out"
+            _hover={{
+              bgColor: "accent",
+            }}
+          >
+            DISCOVER ALL
+          </Button>
+        </Link>
+      </Center>
       <InstagramStack />
     </Box>
   );

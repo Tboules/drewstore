@@ -3,7 +3,7 @@ import { Box, Text } from "@chakra-ui/react";
 
 const Shop = () => {
   return (
-    <Box>
+    <Box minHeight="53vh">
       <Text>Hello Shop</Text>
     </Box>
   );

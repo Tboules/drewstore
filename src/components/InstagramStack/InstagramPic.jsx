@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Image, Center, Link } from "@chakra-ui/react";
 
 //icon
-import icon from "../../images/Insta/icons8-instagram.svg";
+import icon from "../../images/icons/icons8-instagram.svg";
 
 const InstagramPic = ({ link }) => {
   return (

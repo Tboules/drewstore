@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Flex, ListItem, List, Text, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import {HamburgerIcon} from '@chakra-ui/icons'
+import { HamburgerIcon } from "@chakra-ui/icons";
 import NavDrawer from "./NavDrawer";
 
 export const sharedListStyles = {
@@ -13,12 +13,12 @@ export const sharedListStyles = {
 };
 
 const dynamicLinks = {
-  display: {base: 'none', md: 'block'}
-}
+  display: { base: "none", md: "block" },
+};
 
 const Header = () => {
   return (
-    <Flex w="100%" h="120px" align='center'>
+    <Flex w="100%" h="120px" align="center">
       <Box ml="10%" {...dynamicLinks}>
         <List display="flex">
           <Link to="/shop">
@@ -30,11 +30,11 @@ const Header = () => {
         </List>
       </Box>
       <Box flex="1">
-        <Link to="/" >
+        <Link to="/">
           <Text
             color="accent"
-            textAlign={{base:'left', md:'center'}}
-            ml={{base: '10%' , md: '0'}}
+            textAlign={{ base: "left", md: "center" }}
+            ml={{ base: "10%", md: "0" }}
             fontFamily="heading"
             fontWeight="700"
             fontSize="5xl"
