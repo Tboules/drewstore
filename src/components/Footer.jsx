@@ -24,15 +24,21 @@ const Footer = () => {
     <Flex
       w="100%"
       minHeight="300px"
-      mt="20px"
-      pt="50px"
+      mt={{ base: "0", md: "20px" }}
+      pt={{ base: "0", md: "50px" }}
       justify="center"
       align={{ base: "center", md: "flex-start" }}
       borderTop="1px solid"
       borderColor="gray.300"
       direction={{ base: "column", md: "row" }}
     >
-      <Box flex={{ base: "none", md: "6" }} pl={{ base: "none", md: "14%" }}>
+      <FooterAccordion insta={insta} fb={fb} twitter={twitter} />
+      <Box
+        flex={{ base: "none", md: "6" }}
+        pl={{ base: "none", md: "14%" }}
+        pt={{ base: "30px", md: "none" }}
+        pb={{ base: "50px", md: "none" }}
+      >
         <Heading fontSize="6xl" mb="15px">
           Drowchet
         </Heading>
@@ -77,7 +83,6 @@ const Footer = () => {
           </Outlink>
         </HStack>
       </Box>
-      <FooterAccordion insta={insta} fb={fb} twitter={twitter} />
     </Flex>
   );
 };

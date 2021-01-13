@@ -4,6 +4,7 @@ import App from "./App";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import store from "./store";
+import GlobalProvider from "./Context/Global";
 
 const theme = extendTheme({
   fonts: {
@@ -26,7 +27,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <Provider store={store}>
-        <App />
+        <GlobalProvider>
+          <App />
+        </GlobalProvider>
       </Provider>
     </ChakraProvider>
   </React.StrictMode>,

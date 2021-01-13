@@ -16,13 +16,7 @@ import { Link as Inlink } from "react-router-dom";
 
 const FooterAccordion = ({ insta, fb, twitter }) => {
   return (
-    <Accordion
-      mt="30px"
-      mb="30px"
-      allowToggle
-      w="100%"
-      display={{ base: "block", md: "none" }}
-    >
+    <Accordion allowToggle w="100%" display={{ base: "block", md: "none" }}>
       <AccordionItem>
         <AccordionButton>
           <Heading flex="1" color="accentL" fontSize="3xl">

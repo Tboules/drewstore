@@ -4,10 +4,12 @@ import Banner from "../components/Banner";
 import ImageLeftCards from "../components/ImageLeftCards";
 import CategoryGrid from "../components/CategoryDisplay/CategoryGrid";
 import { Link } from "react-router-dom";
-import PopularProductGrid from "../components/ProductCards and Display/PopularProductGrid";
+import ProductGrid from "../components/ProductCards and Display/ProductGrid";
 import InstagramStack from "../components/InstagramStack";
+import { useGlobal } from "../Context/Global";
 
 const Home = () => {
+  const { products } = useGlobal();
   return (
     <Box>
       <Banner />
@@ -35,7 +37,7 @@ const Home = () => {
         />
       </Flex>
       <CategoryGrid />
-      <PopularProductGrid />
+      {products.length !== 0 && <ProductGrid pop={true} />}
       <Center w="100%" h="100px" mt="40px">
         <Link to="/shop">
           <Button
