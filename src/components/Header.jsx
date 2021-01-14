@@ -3,6 +3,7 @@ import { Box, Flex, ListItem, List, Text, Center } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import NavDrawer from "./NavDrawer";
 import { useGlobal } from "../Context/Global";
+import CartDrawer from "../components/CartDrawer";
 
 export const sharedListStyles = {
   fontSize: "1.1rem",
@@ -82,6 +83,7 @@ const Header = () => {
         </List>
       </Box>
       <NavDrawer />
+      <CartDrawer cart={cart} />
     </Flex>
   );
 };
