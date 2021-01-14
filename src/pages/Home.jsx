@@ -8,11 +8,13 @@ import ProductGrid from "../components/ProductCards and Display/ProductGrid";
 import InstagramStack from "../components/InstagramStack";
 import { useGlobal } from "../Context/Global";
 
+import stock from "../images/stock/banner_test.jpg";
+
 const Home = () => {
   const { products } = useGlobal();
   return (
     <Box>
-      <Banner />
+      <Banner pic={stock} height="500px" />
       <Flex
         mt="80px"
         ml="10%"
@@ -37,8 +39,10 @@ const Home = () => {
         />
       </Flex>
       <CategoryGrid />
-      {products.length !== 0 && <ProductGrid pop={true} />}
-      <Center w="100%" h="100px" mt="40px">
+      {products.length !== 0 && (
+        <ProductGrid pop={true} title="Our Most Popular Items" bottom="40px" />
+      )}
+      <Center w="100%" h="100px">
         <Link to="/shop">
           <Button
             m="auto"

@@ -9,13 +9,25 @@ const GlobalProvider = ({
   loadAllProducts,
   getPopItems,
   getProduct,
+  loadCart,
+  addItem,
+  removeItem,
 }) => {
   React.useEffect(() => {
     loadAllProducts();
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ products, getProduct, getPopItems }}>
+    <GlobalContext.Provider
+      value={{
+        products,
+        getProduct,
+        getPopItems,
+        loadCart,
+        addItem,
+        removeItem,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );
@@ -23,12 +35,16 @@ const GlobalProvider = ({
 
 const mapState = (state) => ({
   products: state.products,
+  cart: state.cart,
 });
 
 const mapDispatch = (dispatch) => ({
   loadAllProducts: dispatch.products.loadAllProducts,
   getProduct: dispatch.products.getProduct,
   getPopItems: dispatch.products.getPopItems,
+  loadCart: dispatch.cart.loadCart,
+  addItem: dispatch.cart.addItem,
+  removeItem: dispatch.cart.removeItem,
 });
 
 export default connect(mapState, mapDispatch)(GlobalProvider);

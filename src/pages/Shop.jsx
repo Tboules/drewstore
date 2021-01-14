@@ -2,6 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Box, Text } from "@chakra-ui/react";
 import ProductGrid from "../components/ProductCards and Display/ProductGrid";
+import Banner from "../components/Banner";
+
+import stock from "../images/stock/store_banner.jpg";
 
 const Shop = ({ products, loadAllProducts, getProduct }) => {
   React.useEffect(() => {
@@ -11,7 +14,8 @@ const Shop = ({ products, loadAllProducts, getProduct }) => {
   // console.log(products);
   return (
     <Box minHeight="53vh">
-      <ProductGrid />
+      <Banner height="200px" pic={stock} />
+      <ProductGrid bottom="80px" />
     </Box>
   );
 };

@@ -8,9 +8,22 @@ import {
   Center,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useGlobal } from "../../Context/Global";
 
 const ProductCard = ({ imgUrl, price, productName, sale }) => {
   const { isOpen, onToggle } = useDisclosure();
+  const { addItem } = useGlobal();
+
+  const handleAddToCart = () => {
+    addItem({
+      imgUrl,
+      price,
+      productName,
+      sale,
+      quantity: 1,
+      checkOutPrice: sale ? sale : price,
+    });
+  };
 
   return (
     <Flex
@@ -82,6 +95,7 @@ const ProductCard = ({ imgUrl, price, productName, sale }) => {
           boxShadow="lg"
           letterSpacing="1px"
           cursor="pointer"
+          onClick={handleAddToCart}
         >
           ADD TO CART
         </Center>

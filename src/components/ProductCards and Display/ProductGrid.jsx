@@ -4,7 +4,7 @@ import { Wrap, WrapItem, Heading, Flex } from "@chakra-ui/react";
 import ProductCard from "./ProductCard";
 import { useGlobal } from "../../Context/Global";
 
-const ProductGrid = ({ pop }) => {
+const ProductGrid = ({ pop, title, bottom }) => {
   let [currentProducts, setCurrentProducts] = React.useState([]);
   const { products, getPopItems } = useGlobal();
 
@@ -15,13 +15,22 @@ const ProductGrid = ({ pop }) => {
     } else {
       setCurrentProducts(products);
     }
-  }, [pop]);
+  }, [getPopItems, pop, products]);
 
   return (
-    <Flex direction="column" w="80%" m="auto" align="center" mt="80px">
-      <Heading mb="40px" fontWeight="700" color="accent">
-        Our Most Popular Items
-      </Heading>
+    <Flex
+      direction="column"
+      w="80%"
+      m="auto"
+      align="center"
+      mt="80px"
+      mb={bottom}
+    >
+      {title && (
+        <Heading mb="40px" fontWeight="700" color="accent">
+          {title}
+        </Heading>
+      )}
       <Wrap spacing="70px" justify={{ base: "center", xl: "space-between" }}>
         {products.length !== 0 &&
           currentProducts.map((item) => (

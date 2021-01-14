@@ -1,12 +1,10 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 
-import pic from "../images/stock/banner_test.jpg";
-
-const Banner = () => {
+const Banner = ({ height, pic }) => {
   return (
     <Box
-      h="500px"
+      h={{ base: "300px", lg: `${height}` }}
       w="100%"
       bgSize="100%"
       bgImage={`url(${pic})`}
