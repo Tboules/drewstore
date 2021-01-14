@@ -7,7 +7,6 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  CloseButton,
   Image,
   Text,
   Flex,
@@ -18,6 +17,7 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 import shoppingCart from "../images/icons/shopping-cart.svg";
 import { useGlobal } from "../Context/Global";
+import CartItem from "./CartItem";
 
 const CartDrawer = ({ cart }) => {
   const { cartDrawerOpen, setCartDrawerOpen } = useGlobal();
@@ -72,13 +72,17 @@ const CartDrawer = ({ cart }) => {
               </Flex>
             </DrawerHeader>
             <DrawerBody>
-              <Box>hello Cart</Box>
+              <Box>
+                {cart.items.map((item) => (
+                  <CartItem key={item.imgUrl} {...item} />
+                ))}
+              </Box>
             </DrawerBody>
             <DrawerFooter>
               <Box w="100%" mb="30px">
                 <Flex justify="space-between" align="center" mb="10px">
                   <Text fontSize="xl">Subtotal</Text>
-                  <Text fontSize="xl">$0</Text>
+                  <Text fontSize="xl">{`$${cart.totalCost}`}</Text>
                 </Flex>
                 <Button
                   w="100%"
