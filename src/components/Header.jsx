@@ -1,8 +1,8 @@
 import React from "react";
-import { Box, Flex, ListItem, List, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, ListItem, List, Text, Center } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { HamburgerIcon } from "@chakra-ui/icons";
 import NavDrawer from "./NavDrawer";
+import { useGlobal } from "../Context/Global";
 
 export const sharedListStyles = {
   fontSize: "1.1rem",
@@ -17,8 +17,21 @@ const dynamicLinks = {
 };
 
 const Header = () => {
+  const { cart } = useGlobal();
+
   return (
-    <Flex w="100%" h="120px" align="center">
+    <Flex
+      w="100%"
+      h="80px"
+      bgColor="back"
+      align="center"
+      position="sticky"
+      top="0"
+      left="0"
+      zIndex="3"
+      boxShadow="base"
+      opacity=".9"
+    >
       <Box ml="10%" {...dynamicLinks}>
         <List display="flex">
           <Link to="/shop">
@@ -43,11 +56,28 @@ const Header = () => {
           </Text>
         </Link>
       </Box>
-      <Box mr="10%" {...dynamicLinks}>
+      <Box mr="10%" pos="relative" {...dynamicLinks}>
         <List display="flex" styleType="none">
           <ListItem {...sharedListStyles}>Contact</ListItem>
           <ListItem pl="40px" {...sharedListStyles}>
             Cart
+            {cart.totalItems !== 0 && (
+              <Center
+                pos="absolute"
+                right="-18px"
+                top="-15px"
+                borderRadius="50%"
+                bgColor="primary"
+                minWidth="25px"
+                h="25px"
+                color="back"
+                pl="2px"
+                pb="2px"
+                fontSize="1rem"
+              >
+                {cart.totalItems}
+              </Center>
+            )}
           </ListItem>
         </List>
       </Box>

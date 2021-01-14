@@ -12,6 +12,7 @@ const GlobalProvider = ({
   loadCart,
   addItem,
   removeItem,
+  cart,
 }) => {
   React.useEffect(() => {
     loadAllProducts();
@@ -26,6 +27,7 @@ const GlobalProvider = ({
         loadCart,
         addItem,
         removeItem,
+        cart,
       }}
     >
       {children}

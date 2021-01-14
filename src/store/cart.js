@@ -3,6 +3,7 @@ const model = {
     user: {},
     items: [],
     totalCost: 0,
+    totalItems: 0,
   },
   reducers: {
     loadCart: (state, payload) => payload,
@@ -13,6 +14,10 @@ const model = {
       if (cur) {
         return {
           ...state,
+          totalCost: payload.sale
+            ? state.totalCost + payload.sale
+            : state.totalCost + payload.price,
+          totalItems: state.totalItems + 1,
           items: state.items.map((item, i) => {
             if (item.productName !== payload.productName) {
               return item;
@@ -29,6 +34,10 @@ const model = {
       } else {
         return {
           ...state,
+          totalCost: payload.sale
+            ? state.totalCost + payload.sale
+            : state.totalCost + payload.price,
+          totalItems: state.totalItems + 1,
           items: [...state.items, payload],
         };
       }
@@ -42,6 +51,10 @@ const model = {
       if (cur.quantity === 1) {
         return {
           ...state,
+          totalCost: payload.sale
+            ? state.totalCost - payload.sale
+            : state.totalCost - payload.price,
+          totalItems: state.totalItems - 1,
           items: [
             ...state.items.slice(0, index),
             ...state.items.slice(index + 1),
@@ -50,6 +63,10 @@ const model = {
       } else if (cur.quantity > 1) {
         return {
           ...state,
+          totalCost: payload.sale
+            ? state.totalCost - payload.sale
+            : state.totalCost - payload.price,
+          totalItems: state.totalItems - 1,
           items: state.items.map((item) => {
             if (item.productName !== payload.productName) {
               return item;
