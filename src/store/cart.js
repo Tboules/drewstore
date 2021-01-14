@@ -7,19 +7,24 @@ const model = {
   reducers: {
     loadCart: (state, payload) => payload,
     addItem: (state, payload) => {
-      let itemHold = state.items.find(
+      let cur = state.items.find(
         (item) => item.productName === payload.productName
       );
-      if (itemHold) {
-        let copy = {
-          ...state,
-        };
-        let index = copy.items.indexOf(itemHold);
-        let cur = copy.items[index];
-        cur.quantity += 1;
-        cur.checkOutPrice += cur.sale ? cur.sale : cur.price;
+      if (cur) {
         return {
-          ...copy,
+          ...state,
+          items: state.items.map((item, i) => {
+            if (item.productName !== payload.productName) {
+              return item;
+            }
+            return {
+              ...item,
+              quantity: item.quantity + 1,
+              checkOutPrice: item.sale
+                ? item.checkOutPrice + item.sale
+                : item.checkOutPrice + item.price,
+            };
+          }),
         };
       } else {
         return {
@@ -29,17 +34,35 @@ const model = {
       }
     },
     removeItem: (state, payload) => {
-      let itemHold = state.items.find(
+      let cur = state.items.find(
         (item) => item.productName === payload.productName
       );
-      let index = state.items.indexOf(itemHold);
+      let index = state.items.indexOf(cur);
 
-      if (state.items[index].quantity > 1) {
-        let cur = state.items[index];
-        cur.quantity -= 1;
-        cur.checkOutPrice -= cur.price;
-      } else {
-        state.items.splice(index, 1);
+      if (cur.quantity === 1) {
+        return {
+          ...state,
+          items: [
+            ...state.items.slice(0, index),
+            ...state.items.slice(index + 1),
+          ],
+        };
+      } else if (cur.quantity > 1) {
+        return {
+          ...state,
+          items: state.items.map((item) => {
+            if (item.productName !== payload.productName) {
+              return item;
+            }
+            return {
+              ...item,
+              quantity: item.quantity - 1,
+              checkOutPrice: item.sale
+                ? item.checkOutPrice - item.sale
+                : item.checkOutPrice - item.price,
+            };
+          }),
+        };
       }
     },
   },
