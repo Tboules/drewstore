@@ -18,6 +18,8 @@ const GlobalProvider = ({
     loadAllProducts();
   }, []);
 
+  const [cartDrawerOpen, setCartDrawerOpen] = React.useState(false);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -28,6 +30,8 @@ const GlobalProvider = ({
         addItem,
         removeItem,
         cart,
+        cartDrawerOpen,
+        setCartDrawerOpen,
       }}
     >
       {children}

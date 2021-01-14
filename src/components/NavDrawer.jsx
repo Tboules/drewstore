@@ -18,9 +18,14 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 //styles
 import { sharedListStyles } from "./Header";
 
-const NavDrawer = () => {
+const NavDrawer = ({ openCart }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
+  const handleCartClick = () => {
+    openCart();
+    onClose();
+  };
 
   return (
     <Box mr="10%" display={{ base: "block", md: "none" }}>
@@ -37,9 +42,9 @@ const NavDrawer = () => {
           <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader>
-              <Link to="/" onClick={onClose}>
+              <Box cursor="pointer" onClick={handleCartClick}>
                 Cart
-              </Link>
+              </Box>
             </DrawerHeader>
 
             <DrawerBody>

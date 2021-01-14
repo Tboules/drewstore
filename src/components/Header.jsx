@@ -18,7 +18,7 @@ const dynamicLinks = {
 };
 
 const Header = () => {
-  const { cart } = useGlobal();
+  const { cart, cartDrawerOpen, setCartDrawerOpen } = useGlobal();
 
   return (
     <Flex
@@ -60,7 +60,12 @@ const Header = () => {
       <Box mr="10%" pos="relative" {...dynamicLinks}>
         <List display="flex" styleType="none">
           <ListItem {...sharedListStyles}>Contact</ListItem>
-          <ListItem pl="40px" {...sharedListStyles}>
+          <ListItem
+            cursor="pointer"
+            onClick={() => setCartDrawerOpen(!cartDrawerOpen)}
+            pl="40px"
+            {...sharedListStyles}
+          >
             Cart
             {cart.totalItems !== 0 && (
               <Center
@@ -82,7 +87,7 @@ const Header = () => {
           </ListItem>
         </List>
       </Box>
-      <NavDrawer />
+      <NavDrawer openCart={() => setCartDrawerOpen(!cartDrawerOpen)} />
       <CartDrawer cart={cart} />
     </Flex>
   );

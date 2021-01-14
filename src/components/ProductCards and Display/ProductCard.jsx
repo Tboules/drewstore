@@ -12,7 +12,7 @@ import { useGlobal } from "../../Context/Global";
 
 const ProductCard = ({ imgUrl, price, productName, sale }) => {
   const { isOpen, onToggle } = useDisclosure();
-  const { addItem } = useGlobal();
+  const { addItem, setCartDrawerOpen, cartDrawerOpen } = useGlobal();
 
   const handleAddToCart = () => {
     addItem({
@@ -23,6 +23,7 @@ const ProductCard = ({ imgUrl, price, productName, sale }) => {
       quantity: 1,
       checkOutPrice: sale ? sale : price,
     });
+    setCartDrawerOpen(!cartDrawerOpen);
   };
 
   return (
