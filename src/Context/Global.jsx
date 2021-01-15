@@ -16,7 +16,7 @@ const GlobalProvider = ({
 }) => {
   React.useEffect(() => {
     loadAllProducts();
-  }, []);
+  }, [loadAllProducts]);
 
   const [cartDrawerOpen, setCartDrawerOpen] = React.useState(false);
 

@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Collapse,
-  Box,
-  Text,
-  Image,
-  Flex,
-  Center,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Collapse, Box, Text, Image, Flex, Center } from "@chakra-ui/react";
 import { useGlobal } from "../../Context/Global";
 
 const ProductCard = ({ imgUrl, price, productName, sale }) => {

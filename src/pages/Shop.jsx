@@ -9,9 +9,8 @@ import stock from "../images/stock/store_banner.jpg";
 const Shop = ({ loadAllProducts }) => {
   React.useEffect(() => {
     loadAllProducts();
-  }, []);
+  }, [loadAllProducts]);
 
-  // console.log(products);
   return (
     <Box minHeight="53vh">
       <Banner height="200px" pic={stock} />

@@ -33,8 +33,6 @@ const CartDrawer = ({ cart }) => {
     }
   }, [isLarge]);
 
-  console.log(isLarge);
-
   return (
     <>
       <Drawer

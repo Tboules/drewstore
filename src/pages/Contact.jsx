@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Text, Heading, Image, Box } from "@chakra-ui/react";
+import { Flex, Text, Heading, Image } from "@chakra-ui/react";
 import { MotionBox } from "../components/AnimatedText";
 
 //image

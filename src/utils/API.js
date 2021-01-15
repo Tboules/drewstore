@@ -1,4 +1,4 @@
-import { db, auth } from "../firebase";
+import { db } from "../firebase";
 const productRef = db.collection("products");
 
 export const getAllProductsFromFirestore = async () => {
