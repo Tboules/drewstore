@@ -40,7 +40,9 @@ const Header = () => {
               Shop
             </ListItem>
           </Link>
-          <ListItem {...sharedListStyles}>My Story</ListItem>
+          <Link to="/my-story">
+            <ListItem {...sharedListStyles}>My Story</ListItem>
+          </Link>
         </List>
       </Box>
       <Box flex="1">
@@ -59,7 +61,9 @@ const Header = () => {
       </Box>
       <Box mr="10%" pos="relative" {...dynamicLinks}>
         <List display="flex" styleType="none">
-          <ListItem {...sharedListStyles}>Contact</ListItem>
+          <Link to="/contact">
+            <ListItem {...sharedListStyles}>Contact</ListItem>
+          </Link>
           <ListItem
             cursor="pointer"
             onClick={() => setCartDrawerOpen(!cartDrawerOpen)}

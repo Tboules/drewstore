@@ -1,5 +1,6 @@
 import React from "react";
 import { Center, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const CategoryPics = ({ imgUrl, categoryName }) => {
   let [color, setColor] = React.useState({
@@ -8,44 +9,46 @@ const CategoryPics = ({ imgUrl, categoryName }) => {
   });
 
   return (
-    <Center
-      bgImage={`url(${imgUrl})`}
-      bgPosition="center"
-      bgSize="cover"
-      bgRepeat="no-repeat"
-      h={{ base: "400px", md: "500px" }}
-      cursor="pointer"
-      onMouseEnter={() =>
-        setColor({
-          text: "primary",
-          accent: "primary",
-        })
-      }
-      onMouseLeave={() => {
-        setColor({
-          text: "accentL",
-          accent: "lightgrey",
-        });
-      }}
-    >
+    <Link to="/shop">
       <Center
-        borderRadius="2px"
-        bgColor="back"
-        outline=".8px solid"
-        outlineColor={color.accent}
-        outlineOffset="-4px"
+        bgImage={`url(${imgUrl})`}
+        bgPosition="center"
+        bgSize="cover"
+        bgRepeat="no-repeat"
+        h={{ base: "400px", md: "500px" }}
+        cursor="pointer"
+        onMouseEnter={() =>
+          setColor({
+            text: "primary",
+            accent: "primary",
+          })
+        }
+        onMouseLeave={() => {
+          setColor({
+            text: "accentL",
+            accent: "lightgrey",
+          });
+        }}
       >
-        <Text
-          fontFamily="titles"
-          fontWeight="600"
-          color={color.text}
-          textAlign="center"
-          p="20px"
+        <Center
+          borderRadius="2px"
+          bgColor="back"
+          outline=".8px solid"
+          outlineColor={color.accent}
+          outlineOffset="-4px"
         >
-          {categoryName}
-        </Text>
+          <Text
+            fontFamily="titles"
+            fontWeight="600"
+            color={color.text}
+            textAlign="center"
+            p="20px"
+          >
+            {categoryName}
+          </Text>
+        </Center>
       </Center>
-    </Center>
+    </Link>
   );
 };
 

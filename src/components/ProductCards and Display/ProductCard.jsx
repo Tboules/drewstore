@@ -11,8 +11,8 @@ import {
 import { useGlobal } from "../../Context/Global";
 
 const ProductCard = ({ imgUrl, price, productName, sale }) => {
-  const { isOpen, onToggle } = useDisclosure();
   const { addItem, setCartDrawerOpen, cartDrawerOpen } = useGlobal();
+  const [showATC, setShowATC] = React.useState(false);
 
   const handleAddToCart = () => {
     addItem({
@@ -39,8 +39,8 @@ const ProductCard = ({ imgUrl, price, productName, sale }) => {
       _hover={{
         boxShadow: "lg",
       }}
-      onMouseEnter={onToggle}
-      onMouseLeave={onToggle}
+      onMouseEnter={() => setShowATC(true)}
+      onMouseLeave={() => setShowATC(false)}
     >
       <Image src={imgUrl} objectFit="cover" h="72%" w="100%" />
       {sale && (
@@ -83,7 +83,7 @@ const ProductCard = ({ imgUrl, price, productName, sale }) => {
           </Text>
         </Flex>
       </Box>
-      <Collapse in={isOpen}>
+      <Collapse in={showATC} unmountOnExit={true}>
         <Center
           fontFamily="mono"
           pos="absolute"

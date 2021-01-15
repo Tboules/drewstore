@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, Text, Box, Flex, Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const sharedText = {
   fontFamily: "titles",
@@ -51,17 +52,19 @@ const ImageLeftCards = ({
         <Text {...sharedText} color={textColor}>
           {tagLineBottom}
         </Text>
-        <Button
-          borderRadius="none"
-          pos={{ base: "absolute", xl: "relative" }}
-          top={{ base: "-90px", xl: "0" }}
-          mt="40px"
-          right="0"
-          h="50px"
-          w="140px"
-        >
-          Shop Now!
-        </Button>
+        <Link to="/shop">
+          <Button
+            borderRadius="none"
+            pos={{ base: "absolute", xl: "relative" }}
+            top={{ base: "-90px", xl: "0" }}
+            mt="40px"
+            right="0"
+            h="50px"
+            w="140px"
+          >
+            Shop Now!
+          </Button>
+        </Link>
       </Box>
     </Flex>
   );

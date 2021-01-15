@@ -11,22 +11,26 @@ import flower from "../../images/Insta/flowers.jpg";
 
 const PHOTOS = [backpack, art, morocco, flower, totoWave];
 
-const InstagramStack = () => {
+const InstagramStack = ({ title }) => {
   return (
     <Box mt="100px">
-      <Heading textAlign="center" color="accent">
-        Community
-      </Heading>
-      <Text
-        textAlign="center"
-        fontFamily="titles"
-        fontSize="2xl"
-        mt="20px"
-        mb="20px"
-        color="secondary"
-      >
-        FOLLOW OUR INSTAGRAM
-      </Text>
+      {title !== false && (
+        <Box>
+          <Heading textAlign="center" color="accent">
+            Community
+          </Heading>
+          <Text
+            textAlign="center"
+            fontFamily="titles"
+            fontSize="2xl"
+            mt="20px"
+            mb="20px"
+            color="secondary"
+          >
+            FOLLOW OUR INSTAGRAM
+          </Text>
+        </Box>
+      )}
       <Stack direction="row" spacing="none">
         {PHOTOS.map((photo) => (
           <InstagramPic key={photo} link={photo} />

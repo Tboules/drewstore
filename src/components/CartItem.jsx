@@ -11,6 +11,7 @@ import {
   NumberDecrementStepper,
   CloseButton,
 } from "@chakra-ui/react";
+import { useGlobal } from "../Context/Global";
 
 const CartItem = ({
   imgUrl,
@@ -20,6 +21,41 @@ const CartItem = ({
   sale,
   price,
 }) => {
+  const { addItem, removeItem } = useGlobal();
+  const handleIncrement = () => {
+    addItem({
+      imgUrl,
+      price,
+      productName,
+      sale,
+      quantity: 1,
+      checkOutPrice: sale ? sale : price,
+    });
+  };
+
+  const handleDecrement = () => {
+    removeItem({
+      imgUrl,
+      price,
+      productName,
+      sale,
+      quantity: 1,
+      checkOutPrice: sale ? sale : price,
+    });
+  };
+
+  const handleTotalRemovalOfItem = () => {
+    removeItem({
+      imgUrl,
+      price,
+      productName,
+      sale,
+      quantity: quantity,
+      checkOutPrice: checkOutPrice,
+      total: true,
+    });
+  };
+
   return (
     <Flex h="150px" mb="10px" borderBottom="1px solid gray" pb="10px">
       <Image w="150px" src={imgUrl} mr="10px" />
@@ -30,13 +66,14 @@ const CartItem = ({
         <NumberInput size="md" defaultValue={quantity} maxW={20}>
           <NumberInputField />
           <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
+            <NumberIncrementStepper onClick={handleIncrement} />
+            <NumberDecrementStepper onClick={handleDecrement} />
           </NumberInputStepper>
         </NumberInput>
       </Flex>
       <Flex direction="column" h="140px" justify="space-between">
         <CloseButton
+          onClick={handleTotalRemovalOfItem}
           size="sm"
           transition="transform 0.3s ease-in-out"
           _hover={{

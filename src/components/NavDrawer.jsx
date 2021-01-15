@@ -59,12 +59,12 @@ const NavDrawer = ({ openCart }) => {
                     Shop
                   </ListItem>
                 </Link>
-                <Link to="/" onClick={onClose}>
+                <Link to="/my-story" onClick={onClose}>
                   <ListItem mt={4} {...sharedListStyles}>
                     My Story
                   </ListItem>
                 </Link>
-                <Link to="/" onClick={onClose}>
+                <Link to="/contact" onClick={onClose}>
                   <ListItem mt={4} {...sharedListStyles}>
                     Contact
                   </ListItem>

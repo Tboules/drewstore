@@ -18,8 +18,10 @@ import insta from "../images/icons/icons8-instagram.svg";
 import fb from "../images/icons/icons8-facebook.svg";
 import twitter from "../images/icons/icons8-twitter.svg";
 import FooterAccordion from "./FooterAccordion";
+import { useGlobal } from "../Context/Global";
 
 const Footer = () => {
+  const { setCartDrawerOpen, cartDrawerOpen } = useGlobal();
   return (
     <Flex
       w="100%"
@@ -43,7 +45,7 @@ const Footer = () => {
           Drowchet
         </Heading>
         <Text>+1(951) 531-4000</Text>
-        <Text mt="3px">SUPPORT@DROWCHET.COM</Text>
+        <Text mt="3px">drowchet@giggles.com</Text>
       </Box>
       <Box flex="2" display={{ base: "none", md: "block" }}>
         <Heading color="accentL" fontSize="3xl">
@@ -53,17 +55,20 @@ const Footer = () => {
           <ListItem>
             <Inlink to="/">HOME</Inlink>
           </ListItem>
-          <ListItem>
-            <Inlink to="/">CART</Inlink>
+          <ListItem
+            cursor="pointer"
+            onClick={() => setCartDrawerOpen(!cartDrawerOpen)}
+          >
+            CART
           </ListItem>
           <ListItem>
             <Inlink to="/shop">SHOP</Inlink>
           </ListItem>
           <ListItem>
-            <Inlink to="/">MY STORY</Inlink>
+            <Inlink to="/my-story">MY STORY</Inlink>
           </ListItem>
           <ListItem>
-            <Inlink to="/">CONTACT</Inlink>
+            <Inlink to="/contact">CONTACT</Inlink>
           </ListItem>
         </List>
       </Box>
