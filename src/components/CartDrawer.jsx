@@ -76,8 +76,8 @@ const CartDrawer = ({ cart }) => {
                 ))}
               </Box>
             </DrawerBody>
-            <DrawerFooter>
-              <Box w="100%" mb="30px">
+            <DrawerFooter mb={{ base: "25%", md: 0 }}>
+              <Box w="100%">
                 <Flex justify="space-between" align="center" mb="10px">
                   <Text fontSize="xl">Subtotal</Text>
                   <Text fontSize="xl">{`$${cart.totalCost}`}</Text>

@@ -40,11 +40,16 @@ const NavDrawer = ({ openCart }) => {
       >
         <DrawerOverlay>
           <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>
-              <Box cursor="pointer" onClick={handleCartClick}>
+            <DrawerHeader display="flex" align="center">
+              <Box
+                flex="1"
+                textAlign="left"
+                cursor="pointer"
+                onClick={handleCartClick}
+              >
                 Cart
               </Box>
+              <DrawerCloseButton pos="relative" top="0" right="0" />
             </DrawerHeader>
 
             <DrawerBody>

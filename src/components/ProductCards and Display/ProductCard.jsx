@@ -33,6 +33,8 @@ const ProductCard = ({ imgUrl, price, productName, sale }) => {
       }}
       onMouseEnter={() => setShowATC(true)}
       onMouseLeave={() => setShowATC(false)}
+      onTouchStart={() => setShowATC(true)}
+      onTouchCancel={() => setShowATC(false)}
     >
       <Image src={imgUrl} objectFit="cover" h="72%" w="100%" />
       {sale && (

@@ -63,7 +63,13 @@ const CartItem = ({
         <Heading fontFamily="titles" fontSize="lg">
           {productName}
         </Heading>
-        <NumberInput size="md" defaultValue={quantity} maxW={20}>
+        <NumberInput
+          isReadOnly
+          size="md"
+          defaultValue={quantity}
+          value={quantity}
+          maxW={20}
+        >
           <NumberInputField />
           <NumberInputStepper>
             <NumberIncrementStepper onClick={handleIncrement} />
