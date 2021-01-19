@@ -14,15 +14,26 @@ const GlobalProvider = ({
   removeItem,
   cart,
 }) => {
+  const [storedCart, setStoredCart] = React.useState({});
+  const [cartDrawerOpen, setCartDrawerOpen] = React.useState(false);
   React.useEffect(() => {
     loadAllProducts();
-  }, [loadAllProducts]);
+    if (localStorage.getItem("storedCart") !== null) {
+      loadCart(JSON.parse(localStorage.getItem("storedCart")));
+    }
+  }, [loadAllProducts, loadCart]);
 
-  const [cartDrawerOpen, setCartDrawerOpen] = React.useState(false);
+  React.useEffect(() => {
+    localStorage.setItem("storedCart", JSON.stringify(cart));
+    setStoredCart(JSON.parse(localStorage.getItem("storedCart")));
+  }, [cart]);
+
+  console.log(storedCart.totalItems);
 
   return (
     <GlobalContext.Provider
       value={{
+        storedCart,
         products,
         getProduct,
         getPopItems,
