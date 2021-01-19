@@ -43,7 +43,7 @@ const Footer = () => {
         <Heading fontSize="6xl" mb="15px">
           Drowchet
         </Heading>
-        <Text>+1(951) 531-4000</Text>
+        <Text>+1(999) 000-4000</Text>
         <Text mt="3px">drowchet@giggles.com</Text>
       </Box>
       <Box flex="2" display={{ base: "none", md: "block" }}>

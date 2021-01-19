@@ -73,7 +73,7 @@ const Contact = () => {
           ml={{ base: "0px", md: "34%" }}
           mb={{ base: "50px", md: "0px" }}
         >
-          PHONE: 1(951) 531-4000
+          PHONE: 1(999) 000-4000
         </Text>
       </MotionBox>
     </Flex>
